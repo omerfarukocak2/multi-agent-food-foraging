@@ -1,0 +1,13 @@
+{
+  "python": "3.13.1",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "packages": {
+    "numpy": "2.5.4",
+    "pygame": "2.6.1",
+    "matplotlib": "3.11.2",
+    "pytest": "9.1.1",
+    "reportlab": "5.0.1",
+    "pypdf": "6.21.0",
+    "pymupdf": "1.28.2"
+  }
+}

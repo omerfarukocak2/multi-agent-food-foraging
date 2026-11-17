@@ -1,0 +1,216 @@
+{
+  "config": {
+    "size": 50,
+    "agents": 3,
+    "food_per_color": 375,
+    "max_steps": 300
+  },
+  "maps": 60,
+  "runs": 5,
+  "test_seeds": [
+    950000,
+    950059
+  ],
+  "ci_method": "2000 crossed bootstrap resamples of runs and maps; agents aggregated within episode",
+  "algorithms": {
+    "random": {
+      "mean_team_reward": 1.3366666666666667,
+      "std_team_reward": 11.545604886544906,
+      "team_reward_ci95": [
+        -0.5200833333333333,
+        3.3367499999999994
+      ],
+      "per_agent_metrics": {
+        "reward": {
+          "mean": 0.44555555555555554,
+          "std": 7.685874843165728
+        },
+        "green": {
+          "mean": 33.15555555555556,
+          "std": 7.972995455407527
+        },
+        "red": {
+          "mean": 32.71,
+          "std": 7.889906394523909
+        },
+        "green_collection_rate": {
+          "mean": 0.08841481481481481,
+          "std": 0.021261321214420075
+        },
+        "steps": {
+          "mean": 300.0,
+          "std": 0.0
+        },
+        "reward_per_step": {
+          "mean": 0.001485185185185185,
+          "std": 0.02561958281055243
+        }
+      },
+      "mean_team_green_rate": 0.2652444444444444,
+      "environment_metrics": {
+        "overlaps": {
+          "mean": 1.13,
+          "std": 2.439886847975383
+        },
+        "swaps": {
+          "mean": 0.08666666666666667,
+          "std": 0.3355801179641886
+        },
+        "competitions": {
+          "mean": 0.016666666666666666,
+          "std": 0.128090276840729
+        },
+        "green_competitions": {
+          "mean": 0.01,
+          "std": 0.09955406689742803
+        },
+        "left_priority_wins": {
+          "mean": 0.0033333333333333335,
+          "std": 0.057670769773934275
+        },
+        "boundary_hits": {
+          "mean": 36.07333333333333,
+          "std": 16.66743209217529
+        }
+      }
+    },
+    "heuristic": {
+      "mean_team_reward": 259.7366666666667,
+      "std_team_reward": 14.76643086498982,
+      "team_reward_ci95": [
+        256.8363333333333,
+        262.67
+      ],
+      "per_agent_metrics": {
+        "reward": {
+          "mean": 86.57888888888888,
+          "std": 9.656007765741892
+        },
+        "green": {
+          "mean": 87.86,
+          "std": 9.735338652940147
+        },
+        "red": {
+          "mean": 1.281111111111111,
+          "std": 1.1378212738681062
+        },
+        "green_collection_rate": {
+          "mean": 0.23429333333333333,
+          "std": 0.025960903074507057
+        },
+        "steps": {
+          "mean": 300.0,
+          "std": 0.0
+        },
+        "reward_per_step": {
+          "mean": 0.2885962962962963,
+          "std": 0.03218669255247297
+        }
+      },
+      "mean_team_green_rate": 0.70288,
+      "environment_metrics": {
+        "overlaps": {
+          "mean": 4.67,
+          "std": 7.469253997799814
+        },
+        "swaps": {
+          "mean": 0.01,
+          "std": 0.09955406689742802
+        },
+        "competitions": {
+          "mean": 0.4766666666666667,
+          "std": 0.9038971364986237
+        },
+        "green_competitions": {
+          "mean": 0.4766666666666667,
+          "std": 0.9038971364986237
+        },
+        "left_priority_wins": {
+          "mean": 0.14,
+          "std": 0.40072237330499244
+        },
+        "boundary_hits": {
+          "mean": 7.77,
+          "std": 2.8010386600479875
+        }
+      }
+    },
+    "rl": {
+      "mean_team_reward": 234.03666666666666,
+      "std_team_reward": 58.261450757513096,
+      "team_reward_ci95": [
+        216.30933333333334,
+        252.95858333333334
+      ],
+      "per_agent_metrics": {
+        "reward": {
+          "mean": 78.01222222222222,
+          "std": 36.81479465077312
+        },
+        "green": {
+          "mean": 83.19666666666667,
+          "std": 39.39783382807776
+        },
+        "red": {
+          "mean": 5.184444444444445,
+          "std": 3.7460223208462513
+        },
+        "green_collection_rate": {
+          "mean": 0.2218577777777778,
+          "std": 0.10506089020820734
+        },
+        "steps": {
+          "mean": 300.0,
+          "std": 0.0
+        },
+        "reward_per_step": {
+          "mean": 0.26004074074074074,
+          "std": 0.12271598216924375
+        }
+      },
+      "mean_team_green_rate": 0.6655733333333334,
+      "environment_metrics": {
+        "overlaps": {
+          "mean": 7.836666666666667,
+          "std": 47.116486301758584
+        },
+        "swaps": {
+          "mean": 0.043333333333333335,
+          "std": 0.23420041235647332
+        },
+        "competitions": {
+          "mean": 0.14333333333333334,
+          "std": 0.4930100956306786
+        },
+        "green_competitions": {
+          "mean": 0.14,
+          "std": 0.47678007886656126
+        },
+        "left_priority_wins": {
+          "mean": 0.056666666666666664,
+          "std": 0.2585791586972344
+        },
+        "boundary_hits": {
+          "mean": 60.74,
+          "std": 94.62657219104665
+        }
+      }
+    }
+  },
+  "paired_differences": {
+    "rl_minus_random": {
+      "mean_team_reward_difference": 232.7,
+      "ci95": [
+        215.39925,
+        251.44516666666667
+      ]
+    },
+    "rl_minus_heuristic": {
+      "mean_team_reward_difference": -25.7,
+      "ci95": [
+        -42.970749999999995,
+        -6.88616666666667
+      ]
+    }
+  }
+}

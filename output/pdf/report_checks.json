@@ -1,0 +1,12 @@
+{
+  "agent_records_checked": 3600,
+  "episodes_checked": 1200,
+  "reward_and_food_accounting": "passed",
+  "team_means_standard_deviations_and_bootstrap_intervals": "passed",
+  "paired_differences_and_intervals": "passed",
+  "checkpoint_selection_and_parameter_counts": "passed",
+  "new_training_or_evaluation_run": false,
+  "pdf_pages": 12,
+  "all_13_sections_present": true,
+  "text_within_margins": true
+}

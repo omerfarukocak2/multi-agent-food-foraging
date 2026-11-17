@@ -1,0 +1,11 @@
+{
+  "tests_passed": 54,
+  "test_failures_or_errors": 0,
+  "evaluation_episodes": 1200,
+  "agent_records": 3600,
+  "selected_models_loaded": 15,
+  "pdf_pages": 12,
+  "all_13_report_sections_present": true,
+  "recorded_rewards_and_food_conservation_checked": true,
+  "aggregate_rewards_recomputed": true
+}

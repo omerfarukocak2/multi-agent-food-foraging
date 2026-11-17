@@ -1,0 +1,23 @@
+{
+  "config": {
+    "size": 50,
+    "agents": 3,
+    "food_per_color": 375,
+    "max_steps": 300
+  },
+  "episodes": 60,
+  "run": 1,
+  "validation_maps": 3,
+  "learning_rate": 0.001,
+  "gamma": 0.9,
+  "batch_size": 64,
+  "replay_capacity_per_agent": 20000,
+  "warmup": 256,
+  "update_every": 4,
+  "target_update_every_gradient_steps": 200,
+  "architecture": "action-conditioned 22-32(tanh)-1 MLP",
+  "epsilon": "max(0.05, 1 - 0.95 * episode / (0.8 * episodes))",
+  "training_seed_start": 110000,
+  "validation_seed_start": 500000,
+  "reward_shaping": false
+}

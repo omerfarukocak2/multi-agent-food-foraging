@@ -1,0 +1,281 @@
+# BIL353 – ARTIFICIAL INTELLIGENCE TERM PROJECT
+## Hedef: 100/100 Puan Alabilecek Profesyonel Bir Yapay Zekâ Projesi Geliştirmek
+
+Sen deneyimli bir **Artificial Intelligence Engineer, Reinforcement Learning Researcher, Python Software Architect ve üniversite proje danışmanısın.**
+
+Ben İstanbul Ticaret Üniversitesi Yazılım Mühendisliği öğrencisiyim. BIL353 Artificial Intelligence dersinde verilen dönem projesini gerçekleştirmem gerekiyor.
+
+**Hedefim yalnızca çalışan bir simülasyon yapmak değil; hocanın belirttiği tüm zorunlu gereksinimleri eksiksiz karşılayan, teknik açıdan güçlü, algoritmik olarak başarılı, görsel olarak profesyonel ve akademik olarak savunulabilir bir proje geliştirmek.**
+
+Hedefimiz 100/100 puan kriterlerini karşılamak. Nihai notun öğretim üyesinin değerlendirmesine bağlı olduğunu unutma.
+
+Proje teslim tarihi: **26 Kasım 2026.**
+
+## 1. PROJENİN ZORUNLU GEREKSİNİMLERİ
+
+Proje, 50×50 hücreden oluşan çok ajanlı (Multi-Agent) bir ortamdır.
+
+### Environment
+- Oyun alanı tam olarak 50×50 hücre olacak.
+- Yeşil ve kırmızı yiyecekler rastgele yerleştirilecek.
+- Yeşil ve kırmızı yiyecek sayıları eşit olacak.
+- Başlangıçta yiyecek içeren hücrelerin sayısı toplam 2500 hücrenin %30'unu geçmeyecek.
+- Yiyecekler ajanlar tarafından gözlemlenebilecek.
+
+### Agents
+- Ortamda tam olarak 3 bağımsız ajan bulunacak.
+- Ajanların başlangıç konumları rastgele belirlenecek.
+- Her ajan sadece kendisine en yakın diğer ajanın konumunu bilecek.
+- Yakınlık hesabı Manhattan veya Euclidean Distance ile yapılacak; yöntemin nasıl rastgele seçildiği açıkça gösterilecek.
+- Ajanlar mümkün olduğunca fazla yeşil yiyecek toplarken kırmızı yiyeceklerden kaçınmayı öğrenecek.
+
+### Reward Function
+- Yeşil yiyecekle etkileşim: +1
+- Kırmızı yiyecekle etkileşim: -1
+- Her ajanın ödülü bağımsız hesaplanacak.
+- Hocanın ödül sistemini değiştirmeden uygula. Eğitim için ek reward shaping önerirsen bunu ayrı bir deney olarak sun.
+
+### Action and Observation Space
+- Ajan hızı 1–3 hücre arasında rastgele seçilecek.
+- Eylemler: Up, Down, Left, Right, No Action.
+- Vektör tabanlı gözlem uzayı oluşturulacak.
+- İki ajan aynı yeşil yiyecek için rekabet ederse sola hareket eden ajan kazanacak.
+
+Belgede tam açıklanmayan durumlar için (sınır çarpışmaları, eşzamanlı hareket, birden fazla hücre ilerlerken yiyecek toplama, eşit uzaklık, yiyeceklerin yeniden oluşması vb.) önce makul ve tutarlı varsayımlar öner. Bunları proje raporunda açıkça belirt. Hocanın kurallarıyla çelişme.
+
+## 2. TEKNOLOJİ VE YAZILIM MİMARİSİ
+
+Tercih ettiğim teknoloji Python.
+
+Gerektiğinde şu teknolojilerden yararlan:
+- Python 3
+- NumPy
+- Pygame
+- Matplotlib
+- PyTorch (yalnızca gerçekten gerekliyse)
+- Gymnasium (proje mimarisine fayda sağlarsa)
+
+Kod yapısı modüler ve nesne yönelimli olacak.
+
+Örnek sınıflar:
+- Environment
+- Agent
+- Food
+- RewardManager
+- ObservationManager
+- TrainingManager
+- SimulationRenderer
+- ExperimentEvaluator
+
+Her sınıfın görevini açıkla. Temiz kod, type hints, açıklayıcı isimlendirme, sabit rastgele tohum desteği ve hata kontrolü kullan.
+
+## 3. YAPAY ZEKÂ ALGORİTMALARI – EK 20 PUAN HEDEFİ
+
+Ajanların yalnızca rastgele hareket etmesini istemiyorum.
+
+En az üç yaklaşım geliştir ve karşılaştır:
+
+**Algorithm 1 – Random Agent**
+
+Karşılaştırma için rastgele hareket eden temel ajan.
+
+**Algorithm 2 – Intelligent Heuristic Agent**
+
+- En avantajlı yeşil yiyeceği seçsin.
+- Kırmızı yiyeceklerden kaçınsın.
+- Hedefe olan uzaklığı hesaplasın.
+- Diğer ajanın konumunu dikkate alsın.
+- Gereksiz hareketleri azaltmaya çalışsın.
+- Ödülü artırmak için karar versin.
+
+**Algorithm 3 – Reinforcement Learning Agent**
+
+Projenin ölçeğini değerlendirerek Q-Learning, DQN veya başka uygun bir pekiştirmeli öğrenme yöntemi seç.
+
+Seçimin gerekçesini açıkla.
+
+Ajan:
+- Exploration ve exploitation dengesini kursun.
+- Deneyimlerden öğrensin.
+- Eğitim ilerledikçe performansını geliştirmeye çalışsın.
+- Öğrendiği modeli kaydedebilsin ve yeniden yükleyebilsin.
+- Daha önce görmediği rastgele ortamlarda test edilsin.
+
+Mümkünse üç ajanın aynı ortamda birbirlerini etkilediği multi-agent learning yaklaşımını da değerlendir.
+
+Önemli: Algoritmaların başarılı olduğunu varsayma. Deneylerle ölç ve başarısız sonuçları da açıkça raporla.
+
+## 4. PROFESYONEL GÖRSEL ARAYÜZ
+
+Pygame kullanarak modern ve anlaşılır bir simülasyon arayüzü oluştur.
+
+Arayüzde:
+- 50×50 oyun tahtası
+- Yeşil ve kırmızı yiyecekler
+- Birbirinden farklı renkte 3 ajan
+- Ajanların seçtiği hedefler
+- Hareket animasyonları
+- Her ajanın topladığı yiyecek sayısı
+- Pozitif ve negatif ödüller
+- Toplam skor
+- Adım sayısı
+- Algoritma isimleri
+- Simülasyon hızı
+- Başlat / Duraklat / Sıfırla kontrolleri
+- Eğitilmiş modeli yükleme
+- İsteğe bağlı ajan hareket izleri
+
+bulunsun.
+
+Eğitim ve görselleştirme birbirinden ayrılmalı. Böylece eğitim işlemleri arayüz açılmadan hızlı gerçekleştirilebilmeli.
+
+## 5. DENEYLER VE PERFORMANS KARŞILAŞTIRMASI
+
+Aşağıdaki metrikleri ölç:
+- Average Total Reward
+- Green Food Collected
+- Red Food Collected
+- Green Food Collection Rate
+- Collision / Competition Statistics
+- Average Steps
+- Reward per Step
+- Training Progress
+- Performance on Unseen Maps
+
+Random, Heuristic ve Reinforcement Learning algoritmalarını aynı koşullarda karşılaştır.
+
+Yeterli sayıda bağımsız rastgele deneme yap. Farklı random seed değerleri kullan.
+
+Sonuçları grafiklerle göster:
+- Episode vs Total Reward
+- Agent Reward Comparison
+- Green vs Red Food Collection
+- Algorithm Performance Comparison
+- Learning Curve
+
+Sonuçların ortalamasını, değişkenliğini ve mümkünse güven aralıklarını raporla.
+
+## 6. TEST VE DOĞRULAMA
+
+Projede otomatik testler oluştur.
+
+Özellikle:
+- Haritanın 50×50 olduğunu
+- Yiyecek sayılarının eşit olduğunu
+- %30 sınırının aşılmadığını
+- Tam olarak 3 ajan bulunduğunu
+- Başlangıç konumlarının geçerli olduğunu
+- Gözlem kısıtlarının ihlal edilmediğini
+- Ödüllerin doğru hesaplandığını
+- Ajan hızının 1–3 arasında olduğunu
+- Beş eylemin doğru çalıştığını
+- Sol yön önceliğinin sağlandığını
+- Ajanların tahta dışına çıkmadığını
+- Aynı yiyeceğin iki kez toplanmadığını
+- Sabit seed ile tekrarlanabilirlik sağlandığını
+
+kontrol et.
+
+Kod parçaları arasında tutarsızlık bırakma.
+
+## 7. AKADEMİK RAPOR
+
+Profesyonel bir İngilizce akademik rapor hazırlamama yardımcı ol.
+
+Rapor şu bölümleri içersin:
+
+1. Abstract
+2. Introduction
+3. Problem Definition
+4. Related Work
+5. Methodology
+6. Environment and Agent Design
+7. Reinforcement Learning Algorithm
+8. Experimental Setup
+9. Results and Evaluation
+10. Discussion
+11. Limitations
+12. Conclusion
+13. References
+
+IMRAD mantığına uygun akademik yapı kullan.
+
+Algoritmaları matematiksel formüllerle açıkla. Kullanılan hiperparametreleri ve eğitim koşullarını belirt.
+
+Gerçek bilimsel yayınlara referans ver. Uydurma akademik kaynak, deney sonucu veya performans değeri oluşturma.
+
+Raporun kodla ve gerçek deney sonuçlarıyla tamamen uyumlu olmasını sağla.
+
+## 8. PROJENİN TESLİM DOSYALARI
+
+Teslim sonunda aşağıdaki yapıyı hedefle:
+
+```text
+Group1_AI_Project/
+│
+├── main.py
+├── environment.py
+├── agent.py
+├── rewards.py
+├── observations.py
+│
+├── algorithms/
+│   ├── random_agent.py
+│   ├── heuristic_agent.py
+│   └── rl_agent.py
+│
+├── training/
+│   └── train.py
+│
+├── evaluation/
+│   └── evaluate.py
+│
+├── visualization/
+│   └── renderer.py
+│
+├── tests/
+│   └── test_environment.py
+│
+├── models/
+├── results/
+├── requirements.txt
+├── README.md
+└── Project_Report.pdf
+```
+
+Gerekirse mimariyi iyileştirebilirsin.
+
+Kodun tamamı aynı proje klasöründe çalışabilir durumda olmalı.
+
+README dosyasında kurulum, eğitim, test, görselleştirme ve yeniden üretilebilirlik komutları bulunmalı.
+
+## 9. ÇALIŞMA ŞEKLİMİZ
+
+Bana tüm kodları bir anda verip bırakma. Projeyi bir mühendislik çalışması gibi aşama aşama geliştirelim.
+
+Her aşamada:
+
+1. Önce ne yapacağımızı açıkla.
+2. Kullanılan kavramların yapay zekâ açısından anlamını anlat.
+3. Kodu eksiksiz ve çalıştırılabilir şekilde yaz.
+4. Kodun önemli bölümlerini açıkla.
+5. Nasıl çalıştıracağımı göster.
+6. Beklenen sonuçları belirt.
+7. Hataları kontrol etmem için testleri hazırla.
+8. Sonraki aşamaya geçmeden önce onayımı bekle.
+
+Başlangıç seviyesi bir geliştiricinin anlayabileceği açıklıkta anlat, ancak teknik kaliteden ödün verme.
+
+**İlk yanıtında kod yazmaya başlama.**
+
+Önce:
+- Projenin teknik analizini yap.
+- Hocanın gereksinimlerini kontrol listesine dönüştür.
+- Belirsiz gereksinimleri ve riskleri belirt.
+- 80 puanlık zorunlu kriterlerle 20 puanlık ileri algoritma hedeflerini ayır.
+- En uygun öğrenme algoritmasını gerekçelendir.
+- Proje mimarisini oluştur.
+- 26 Kasım 2026 tarihine kadar haftalık geliştirme planını hazırla.
+- Hangi aşamada ne üreteceğimizi açıkla.
+
+**Nihai hedefimiz: Eksiksiz çalışan, akıllı davranışlar sergileyen, deneylerle doğrulanan ve akademik olarak savunulabilen, 100/100 puanı hedefleyen bir Artificial Intelligence Term Project geliştirmek.**
